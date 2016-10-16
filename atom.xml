@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.lilianghong.com/"/>
-  <updated>2016-10-16T16:57:09.000Z</updated>
+  <updated>2016-10-16T17:26:18.000Z</updated>
   <id>http://www.lilianghong.com/</id>
   
   <author>
@@ -16,11 +16,181 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>fis学习笔记</title>
+    <link href="http://www.lilianghong.com/2016/10/16/fis-study-notes/"/>
+    <id>http://www.lilianghong.com/2016/10/16/fis-study-notes/</id>
+    <published>2016-10-16T10:18:30.000Z</published>
+    <updated>2016-10-16T17:26:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="fis安装"><a href="#fis安装" class="headerlink" title="fis安装"></a>fis安装</h2><p>全局安装fis<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install -g fis  其中的 -g 表示安装在全局，就是在所有的目录都可以用</div><div class="line">npm install -g fis</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install fis 如果不加-g 就是在哪个目录执行的就是安装在哪</div></pre></td></tr></table></figure>
+<h2 id="下载demo"><a href="#下载demo" class="headerlink" title="下载demo"></a>下载demo</h2><p>新建文件夹 ，然后通过路径下载项目<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git clone + 项目路径</div><div class="line">git clone https://github.com/hefangshi/fis-quickstart-demo.git</div></pre></td></tr></table></figure></p>
+<h2 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fis server start</div></pre></td></tr></table></figure>
+<h2 id="资源压缩"><a href="#资源压缩" class="headerlink" title="资源压缩"></a>资源压缩</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">fis release --optimize 简写形式是  fis release -o（--都是全称，-是简写）</div><div class="line">fis release -d  + 路径 把压缩后的代码放在哪里</div></pre></td></tr></table></figure>
+<p>举例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">fis release -d f:dd/cc   把压缩过后的代码放在f盘里面的dd文件夹下里面的cc文件夹</div><div class="line">fis release -o -d f:dd/cc  先压缩，然后把压缩过后的代码放在f盘里面的dd文件夹里面的cc文件夹。</div></pre></td></tr></table></figure></p>
+<h2 id="添加文件版本（md5戳）"><a href="#添加文件版本（md5戳）" class="headerlink" title="添加文件版本（md5戳）"></a>添加文件版本（md5戳）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fis release --optimize --md5 (压缩和打md5是同时进行的)</div></pre></td></tr></table></figure>
+<h2 id="资源合并"><a href="#资源合并" class="headerlink" title="资源合并"></a>资源合并</h2><h3 id="设置打包"><a href="#设置打包" class="headerlink" title="设置打包"></a>设置打包</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">fis.config.set(<span class="string">'pack'</span>, &#123;</div><div class="line">    <span class="string">'/pkg/lib.js'</span>: [</div><div class="line">        <span class="string">'js/lib/jquery.js'</span>,</div><div class="line">        <span class="string">'js/lib/underscore.js'</span>,</div><div class="line">        <span class="string">'js/lib/backbone.js'</span>,</div><div class="line">        <span class="string">'js/lib/backbone.localStorage.js'</span>,</div><div class="line">    ]</div><div class="line">&#125;);  <span class="comment">//fis配置文件里面，改写。  //合并js</span></div></pre></td></tr></table></figure>
+<h3 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install -g fis-postpackager-simple</div><div class="line">fis.config.set(&apos;modules.postpackager&apos;, &apos;simple&apos;);  //fis配置文件里面改写。</div></pre></td></tr></table></figure>
+<h3 id="应用打包"><a href="#应用打包" class="headerlink" title="应用打包"></a>应用打包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fis release --optimize --md5 --pack</div></pre></td></tr></table></figure>
+<h3 id="自动打包"><a href="#自动打包" class="headerlink" title="自动打包"></a>自动打包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fis.config.set(&apos;settings.postpackager.simple.autoCombine&apos;, true);</div></pre></td></tr></table></figure>
+<p>再次运行FIS构建项目<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fis release -omp</div></pre></td></tr></table></figure></p>
+<h3 id="合并css"><a href="#合并css" class="headerlink" title="合并css"></a>合并css</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">fis.config.set(<span class="string">'pack'</span>, &#123;</div><div class="line">    <span class="string">'/pkg/lib.js'</span>: [</div><div class="line">        <span class="string">'js/lib/jquery.js'</span>,</div><div class="line">        <span class="string">'js/lib/underscore.js'</span>,</div><div class="line">        <span class="string">'js/lib/backbone.js'</span>,</div><div class="line">        <span class="string">'js/lib/backbone.localStorage.js'</span>,</div><div class="line">    ],</div><div class="line">    <span class="string">'/pkg/aio.css'</span>: <span class="string">'**.css'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>再次运行FIS构建项目<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fis release -omp</div></pre></td></tr></table></figure></p>
+<h2 id="辅助开发："><a href="#辅助开发：" class="headerlink" title="辅助开发："></a>辅助开发：</h2><p>语言扩展：</p>
+<h3 id="插件安装："><a href="#插件安装：" class="headerlink" title="插件安装："></a>插件安装：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g fis-parser-less</div></pre></td></tr></table></figure>
+<h3 id="开启插件："><a href="#开启插件：" class="headerlink" title="开启插件："></a>开启插件：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fis.config.set(&apos;modules.parser.less&apos;, &apos;less&apos;);</div></pre></td></tr></table></figure>
+<p>解释：</p>
+<p>file: fis-conf.js</p>
+<p>后缀名的less的文件使用fis-parser-less编译</p>
+<p>modules.parser.less表示设置后缀名为less的文件的parser，第二个less表示使用fis-parser-less进行编译</p>
+<h4 id="快速试用："><a href="#快速试用：" class="headerlink" title="快速试用："></a>快速试用：</h4><p>在fis-conf.js同目录编写一个LESS文件<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">body &#123;</div><div class="line">    .container &#123;</div><div class="line">        width: 980px;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>使用发布到output目录中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fis release -wd output</div></pre></td></tr></table></figure></p>
+<p>结果：<br>可以看到在output目录中，原有的less文件已经被编译为了css文件<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> <span class="selector-class">.container</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">980px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="自动化："><a href="#自动化：" class="headerlink" title="自动化："></a>自动化：</h2><h3 id="文件监视"><a href="#文件监视" class="headerlink" title="文件监视"></a>文件监视</h3><p>通过文件监视功能，我们可以要求FIS在项目文件出现修改时，自动增量构建项目文件。并且增量构建是考虑了各种嵌入关系的，比如a.css文件内嵌了b.css文件，那么当b.css文件修改时，FIS会自动重新构建a.css和b.css两个文件。</p>
+<p>可以使用快速入门中的fis-quickstart-demo试试看，首先开启文件监听功能<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fis release --watch</div></pre></td></tr></table></figure></p>
+<h3 id="自动刷"><a href="#自动刷" class="headerlink" title="自动刷"></a>自动刷</h3><p>我们只需要在文件监视的参数基础上添加 –live 或 -L 参数即可实现在项目文件发生修改后，自动刷新页面的功能，大幅提高其页面制作效率。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fis release --watch --live</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;fis安装&quot;&gt;&lt;a href=&quot;#fis安装&quot; class=&quot;headerlink&quot; title=&quot;fis安装&quot;&gt;&lt;/a&gt;fis安装&lt;/h2&gt;&lt;p&gt;全局安装fis&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td 
+    
+    </summary>
+    
+    
+      <category term="fis" scheme="http://www.lilianghong.com/tags/fis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vagrant安装</title>
+    <link href="http://www.lilianghong.com/2016/10/16/vagrant-install/"/>
+    <id>http://www.lilianghong.com/2016/10/16/vagrant-install/</id>
+    <published>2016-10-16T05:01:38.000Z</published>
+    <updated>2016-10-16T17:16:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1、下载box"><a href="#1、下载box" class="headerlink" title="1、下载box"></a>1、下载box</h2><p>把别人给的box或自己下载的box放到相对应的目录，这里以/f/vagrant/package为例。</p>
+<h2 id="2、添加box"><a href="#2、添加box" class="headerlink" title="2、添加box"></a>2、添加box</h2><p>将box添加到vagrant中，命令如下：(cmd打开命令行软件)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vagrant box add hzx /f/vagrant/package/hzx.box</div></pre></td></tr></table></figure></p>
+<p>其中hzx为自己给这个box取得名字，取一个有意义的</p>
+<p>f:/vagrant/package/hzx.box 为要添加的box的路劲，可以是绝对路劲，也可以是相对路径</p>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/2016101714766374037103.jpg?imageView2/0/format/jpg" alt="2016101714766374037103.jpg"></p>
+<p>可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vagrant box list</div></pre></td></tr></table></figure></p>
+<p>看看添加成功没有</p>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663744087341.jpg?imageView2/0/format/jpg" alt="20161017147663744087341.jpg"></p>
+<h2 id="3、切换到f盘"><a href="#3、切换到f盘" class="headerlink" title="3、切换到f盘"></a>3、切换到f盘</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd /f/</div></pre></td></tr></table></figure>
+<p>进入对应的目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd vagrant/usebox</div></pre></td></tr></table></figure></p>
+<p>（提前建好的，也可以自己md+文件夹名字，如mkdir   vagrant）</p>
+<h2 id="4、假设我们现在要安装一个名字叫test的虚拟机"><a href="#4、假设我们现在要安装一个名字叫test的虚拟机" class="headerlink" title="4、假设我们现在要安装一个名字叫test的虚拟机"></a>4、假设我们现在要安装一个名字叫test的虚拟机</h2><p>新建test文件夹<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir test</div></pre></td></tr></table></figure></p>
+<p>可以输入ls看看新建成功没有<br><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663746993903.jpg?imageView2/0/format/jpg" alt="20161017147663746993903.jpg"></p>
+<h2 id="5、进入test文件夹"><a href="#5、进入test文件夹" class="headerlink" title="5、进入test文件夹"></a>5、进入test文件夹</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd test</div></pre></td></tr></table></figure>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663748893897.jpg?imageView2/0/format/jpg" alt="20161017147663748893897.jpg"></p>
+<h2 id="6、初始化虚拟机"><a href="#6、初始化虚拟机" class="headerlink" title="6、初始化虚拟机"></a>6、初始化虚拟机</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vagrant init test</div></pre></td></tr></table></figure>
+<p>其中test是我们刚才添加box时取的名字</p>
+<h2 id="7、修改Vagrantfile配置文件，设置ip等，这里我们暂时只修改ip"><a href="#7、修改Vagrantfile配置文件，设置ip等，这里我们暂时只修改ip" class="headerlink" title="7、修改Vagrantfile配置文件，设置ip等，这里我们暂时只修改ip"></a>7、修改Vagrantfile配置文件，设置ip等，这里我们暂时只修改ip</h2><p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663750664640.jpg?imageView2/0/format/jpg" alt="20161017147663750664640.jpg"></p>
+<h2 id="8、启动虚拟机"><a href="#8、启动虚拟机" class="headerlink" title="8、启动虚拟机"></a>8、启动虚拟机</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vagrant up</div></pre></td></tr></table></figure>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663753592402.jpg?imageView2/0/format/jpg" alt="20161017147663753592402.jpg"></p>
+<h2 id="9、连接并进入虚拟机"><a href="#9、连接并进入虚拟机" class="headerlink" title="9、连接并进入虚拟机"></a>9、连接并进入虚拟机</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vagrant ssh （要在git里面连）</div></pre></td></tr></table></figure>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663757088633.jpg?imageView2/0/format/jpg" alt="20161017147663757088633.jpg"></p>
+<h2 id="10、查看本机ip"><a href="#10、查看本机ip" class="headerlink" title="10、查看本机ip"></a>10、查看本机ip</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ip a</div></pre></td></tr></table></figure>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663758796362.jpg?imageView2/0/format/jpg" alt="20161017147663758796362.jpg"></p>
+<p>发现没有我们设置的ip，所以需要删除一个文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm -rf  /etc/udev/rules.d/70-persistent-net.rules</div></pre></td></tr></table></figure></p>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/2016101714766376176998.jpg?imageView2/0/format/jpg" alt="2016101714766376176998.jpg"></p>
+<p>会提示没有权限 permission denied</p>
+<p>我们需要切换到root超级管理员,输入命令su<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">su</div></pre></td></tr></table></figure></p>
+<p>输入root密码，再兴的是huzaixing</p>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663764226941.jpg?imageView2/0/format/jpg" alt="20161017147663764226941.jpg"></p>
+<p>使用passwd命令修改密码为vagrant（这个密码就是xshell里面的密码）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">passwd</div></pre></td></tr></table></figure></p>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663766479267.jpg?imageView2/0/format/jpg" alt="20161017147663766479267.jpg"><br>这个时候密码修改成功了</p>
+<p>然后再次删除，就成功了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm -rf  /etc/udev/rules.d/70-persistent-net.rules</div></pre></td></tr></table></figure></p>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663768567010.jpg?imageView2/0/format/jpg" alt="20161017147663768567010.jpg"></p>
+<p>退出虚拟机 exit命令2次<br><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663770711222.jpg?imageView2/0/format/jpg" alt="20161017147663770711222.jpg"></p>
+<h2 id="11、重启虚拟机"><a href="#11、重启虚拟机" class="headerlink" title="11、重启虚拟机"></a>11、重启虚拟机</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vagrant halt 先关闭</div><div class="line">vagrant up 再启动</div></pre></td></tr></table></figure>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663773513526.jpg?imageView2/0/format/jpg" alt="20161017147663773513526.jpg"><br>重复 9 10步，会发现已经有我们设置的ip<br><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663775870914.jpg?imageView2/0/format/jpg" alt="20161017147663775870914.jpg"></p>
+<h2 id="12、至此，我们的虚拟机已经安装成功了，欧耶"><a href="#12、至此，我们的虚拟机已经安装成功了，欧耶" class="headerlink" title="12、至此，我们的虚拟机已经安装成功了，欧耶"></a>12、至此，我们的虚拟机已经安装成功了，欧耶</h2><h2 id="13、扩展，用vagrant-ssh-每次连接比较麻烦，所以我们会使用xshell来连接，具体可以看xshell的笔记"><a href="#13、扩展，用vagrant-ssh-每次连接比较麻烦，所以我们会使用xshell来连接，具体可以看xshell的笔记" class="headerlink" title="13、扩展，用vagrant ssh 每次连接比较麻烦，所以我们会使用xshell来连接，具体可以看xshell的笔记"></a>13、扩展，用vagrant ssh 每次连接比较麻烦，所以我们会使用xshell来连接，具体可以看xshell的笔记</h2><blockquote>
+<p>备注：</p>
+<ul>
+<li>box是创建虚拟机的模板，一个模板(box)可以创建多个虚拟机。</li>
+<li>box是模板，有模板不代表有虚拟机</li>
+<li>记住一个概念，你在哪个目录vagrant init xxx，这个目录就变成了你的一个虚拟机</li>
+<li>dir  查看新建的文件夹是否创建好(windows)</li>
+<li>如图，看显示的是盘符，表示你还没有输入vagrant ssh的时候在windows中</li>
+</ul>
+</blockquote>
+<p>下面的红框，是你输入完vagrant ssh了，表示你在linux中。两个前面是不同的</p>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663777844225.jpg?imageView2/0/format/jpg" alt="20161017147663777844225.jpg"></p>
+<p>虚拟机ip: 192.168.33.10</p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ vagrant init  # 初始化</div><div class="line">$ vagrant up  # 启动虚拟机</div><div class="line">$ vagrant halt  # 关闭虚拟机</div><div class="line">$ vagrant reload  # 重启虚拟机</div><div class="line">$ vagrant ssh  # SSH 至虚拟机</div><div class="line">$ vagrant status  # 查看虚拟机运行状态</div><div class="line">$ vagrant destroy  # 销毁当前虚拟机</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1、下载box&quot;&gt;&lt;a href=&quot;#1、下载box&quot; class=&quot;headerlink&quot; title=&quot;1、下载box&quot;&gt;&lt;/a&gt;1、下载box&lt;/h2&gt;&lt;p&gt;把别人给的box或自己下载的box放到相对应的目录，这里以/f/vagrant/package为例。
+    
+    </summary>
+    
+    
+      <category term="vagrant" scheme="http://www.lilianghong.com/tags/vagrant/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo博客安装</title>
+    <link href="http://www.lilianghong.com/2016/10/15/hexo-blog-install/"/>
+    <id>http://www.lilianghong.com/2016/10/15/hexo-blog-install/</id>
+    <published>2016-10-15T11:33:28.000Z</published>
+    <updated>2016-10-16T16:57:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h2><h3 id="安装node-js-需要下载安装软件"><a href="#安装node-js-需要下载安装软件" class="headerlink" title="安装node.js (需要下载安装软件)"></a>安装node.js (需要下载安装软件)</h3><h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><blockquote>
+<p>git和github是不一样的，git只是终端，github是储存代码的远程仓库，安装github需要安装软件</p>
+</blockquote>
+<h2 id="添加SSH-Key。"><a href="#添加SSH-Key。" class="headerlink" title="添加SSH-Key。"></a>添加SSH-Key。</h2><h3 id="设置你的用户名密码："><a href="#设置你的用户名密码：" class="headerlink" title="设置你的用户名密码："></a>设置你的用户名密码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.email &quot;bu.ru@qq.com&quot;</div><div class="line">git config --global user.name &quot;bruce-sha&quot;</div></pre></td></tr></table></figure>
+<h3 id="生成密钥："><a href="#生成密钥：" class="headerlink" title="生成密钥："></a>生成密钥：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;bu.ru@qq.com&quot;</div></pre></td></tr></table></figure>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/201610161476633567863.jpg?imageView2/0/format/jpg" alt="201610161476633567863.jpg"></p>
+<blockquote>
+<p>tips:</p>
+</blockquote>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663361865153.jpg?imageView2/0/format/jpg" alt="20161017147663361865153.jpg"></p>
+<blockquote>
+<p>如果有两个密匙，要把配置文件更改下，如下：</p>
+</blockquote>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663374724349.jpg?imageView2/0/format/jpg" alt="20161017147663374724349.jpg"></p>
+<h3 id="打开-github-pub-粘贴里面的内容"><a href="#打开-github-pub-粘贴里面的内容" class="headerlink" title="打开 github.pub,粘贴里面的内容"></a>打开 github.pub,粘贴里面的内容</h3><p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663378073236.jpg?imageView2/0/format/jpg" alt="20161017147663378073236.jpg"></p>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/2016101714766338073213.jpg?imageView2/0/format/jpg" alt="2016101714766338073213.jpg"></p>
+<p>如果页面在这的话，点击头像的setting设置，到：<br><img src="http://7xqmjb.com1.z0.glb.clouddn.com/201610171476633851331.jpg?imageView2/0/format/jpg" alt="201610171476633851331.jpg"><br><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663388556851.jpg?imageView2/0/format/jpg" alt="20161017147663388556851.jpg"></p>
+<p>设置好的话，可以输入 ssh -T git@github.com,验证一下，中间需要你输入yes或者点击enter键。<br>出现一下证明设置成功：<br><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663391998254.jpg?imageView2/0/format/jpg" alt="20161017147663391998254.jpg"></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre><code>npm install -g hexo
+苹果下面是 sudo  npm install -g hexo
+出现界面
+</code></pre><p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663395285019.jpg?imageView2/0/format/jpg" alt="20161017147663395285019.jpg"><br>不报错就是成功~</p>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>执行init命令初始化hexo到你指定的目录：</p>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663400745584.jpg?imageView2/0/format/jpg" alt="20161017147663400745584.jpg"></p>
+<p>进入到相应的目录，然后新建文件夹。</p>
+<p>进入到用户文件夹里面的”.ssh”文件<br>pwd</p>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663404615144.jpg?imageView2/0/format/jpg" alt="20161017147663404615144.jpg"></p>
+<p>上一步就是执行init命令初始化hexo到你指定的目录：</p>
+<h2 id="生成静态页面"><a href="#生成静态页面" class="headerlink" title="生成静态页面"></a>生成静态页面</h2><p>cd 到你的init目录，执行如下命令</p>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663406986342.jpg?imageView2/0/format/jpg" alt="20161017147663406986342.jpg"></p>
+<h2 id="本地启动"><a href="#本地启动" class="headerlink" title="本地启动"></a>本地启动</h2><p>hexo server</p>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663410054454.jpg?imageView2/0/format/jpg" alt="20161017147663410054454.jpg"><br>这个窗口不能关，然后打开<a href="http://localhost:4000/页面，就ok了。" target="_blank" rel="external">http://localhost:4000/页面，就ok了。</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;环境安装&quot;&gt;&lt;a href=&quot;#环境安装&quot; class=&quot;headerlink&quot; title=&quot;环境安装&quot;&gt;&lt;/a&gt;环境安装&lt;/h2&gt;&lt;h3 id=&quot;安装node-js-需要下载安装软件&quot;&gt;&lt;a href=&quot;#安装node-js-需要下载安装软件&quot; class=&quot;
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://www.lilianghong.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>git学习笔记</title>
-    <link href="http://www.lilianghong.com/2016/10/16/Git-learning-notes/"/>
-    <id>http://www.lilianghong.com/2016/10/16/Git-learning-notes/</id>
-    <published>2016-10-16T09:17:32.000Z</published>
-    <updated>2016-10-16T16:57:09.000Z</updated>
+    <link href="http://www.lilianghong.com/2016/10/15/git-study-notes/"/>
+    <id>http://www.lilianghong.com/2016/10/15/git-study-notes/</id>
+    <published>2016-10-15T09:17:32.000Z</published>
+    <updated>2016-10-16T17:15:37.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="创建版本库："><a href="#创建版本库：" class="headerlink" title="创建版本库："></a>创建版本库：</h2><p>用于显示当前目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pwd</div></pre></td></tr></table></figure></p>
 <p>初始化一个git仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git init</div></pre></td></tr></table></figure></p>
@@ -103,58 +273,6 @@
     
     
       <category term="git" scheme="http://www.lilianghong.com/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo博客安装</title>
-    <link href="http://www.lilianghong.com/2016/10/15/hexo-blog-install/"/>
-    <id>http://www.lilianghong.com/2016/10/15/hexo-blog-install/</id>
-    <published>2016-10-15T11:33:28.000Z</published>
-    <updated>2016-10-16T16:57:15.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h2><h3 id="安装node-js-需要下载安装软件"><a href="#安装node-js-需要下载安装软件" class="headerlink" title="安装node.js (需要下载安装软件)"></a>安装node.js (需要下载安装软件)</h3><h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><blockquote>
-<p>git和github是不一样的，git只是终端，github是储存代码的远程仓库，安装github需要安装软件</p>
-</blockquote>
-<h2 id="添加SSH-Key。"><a href="#添加SSH-Key。" class="headerlink" title="添加SSH-Key。"></a>添加SSH-Key。</h2><h3 id="设置你的用户名密码："><a href="#设置你的用户名密码：" class="headerlink" title="设置你的用户名密码："></a>设置你的用户名密码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.email &quot;bu.ru@qq.com&quot;</div><div class="line">git config --global user.name &quot;bruce-sha&quot;</div></pre></td></tr></table></figure>
-<h3 id="生成密钥："><a href="#生成密钥：" class="headerlink" title="生成密钥："></a>生成密钥：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;bu.ru@qq.com&quot;</div></pre></td></tr></table></figure>
-<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/201610161476633567863.jpg?imageView2/0/format/jpg" alt="201610161476633567863.jpg"></p>
-<blockquote>
-<p>tips:</p>
-</blockquote>
-<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663361865153.jpg?imageView2/0/format/jpg" alt="20161017147663361865153.jpg"></p>
-<blockquote>
-<p>如果有两个密匙，要把配置文件更改下，如下：</p>
-</blockquote>
-<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663374724349.jpg?imageView2/0/format/jpg" alt="20161017147663374724349.jpg"></p>
-<h3 id="打开-github-pub-粘贴里面的内容"><a href="#打开-github-pub-粘贴里面的内容" class="headerlink" title="打开 github.pub,粘贴里面的内容"></a>打开 github.pub,粘贴里面的内容</h3><p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663378073236.jpg?imageView2/0/format/jpg" alt="20161017147663378073236.jpg"></p>
-<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/2016101714766338073213.jpg?imageView2/0/format/jpg" alt="2016101714766338073213.jpg"></p>
-<p>如果页面在这的话，点击头像的setting设置，到：<br><img src="http://7xqmjb.com1.z0.glb.clouddn.com/201610171476633851331.jpg?imageView2/0/format/jpg" alt="201610171476633851331.jpg"><br><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663388556851.jpg?imageView2/0/format/jpg" alt="20161017147663388556851.jpg"></p>
-<p>设置好的话，可以输入 ssh -T git@github.com,验证一下，中间需要你输入yes或者点击enter键。<br>出现一下证明设置成功：<br><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663391998254.jpg?imageView2/0/format/jpg" alt="20161017147663391998254.jpg"></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre><code>npm install -g hexo
-苹果下面是 sudo  npm install -g hexo
-出现界面
-</code></pre><p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663395285019.jpg?imageView2/0/format/jpg" alt="20161017147663395285019.jpg"><br>不报错就是成功~</p>
-<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>执行init命令初始化hexo到你指定的目录：</p>
-<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663400745584.jpg?imageView2/0/format/jpg" alt="20161017147663400745584.jpg"></p>
-<p>进入到相应的目录，然后新建文件夹。</p>
-<p>进入到用户文件夹里面的”.ssh”文件<br>pwd</p>
-<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663404615144.jpg?imageView2/0/format/jpg" alt="20161017147663404615144.jpg"></p>
-<p>上一步就是执行init命令初始化hexo到你指定的目录：</p>
-<h2 id="生成静态页面"><a href="#生成静态页面" class="headerlink" title="生成静态页面"></a>生成静态页面</h2><p>cd 到你的init目录，执行如下命令</p>
-<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663406986342.jpg?imageView2/0/format/jpg" alt="20161017147663406986342.jpg"></p>
-<h2 id="本地启动"><a href="#本地启动" class="headerlink" title="本地启动"></a>本地启动</h2><p>hexo server</p>
-<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663410054454.jpg?imageView2/0/format/jpg" alt="20161017147663410054454.jpg"><br>这个窗口不能关，然后打开<a href="http://localhost:4000/页面，就ok了。" target="_blank" rel="external">http://localhost:4000/页面，就ok了。</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;环境安装&quot;&gt;&lt;a href=&quot;#环境安装&quot; class=&quot;headerlink&quot; title=&quot;环境安装&quot;&gt;&lt;/a&gt;环境安装&lt;/h2&gt;&lt;h3 id=&quot;安装node-js-需要下载安装软件&quot;&gt;&lt;a href=&quot;#安装node-js-需要下载安装软件&quot; class=&quot;
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="http://www.lilianghong.com/tags/hexo/"/>
     
   </entry>
   

@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.lilianghong.com/2016/10/15/hexo-blog-install/</loc>
+    <loc>http://www.lilianghong.com/2016/10/16/fis-study-notes/</loc>
     
-    <lastmod>2016-10-16T16:57:15.000Z</lastmod>
+    <lastmod>2016-10-16T17:26:18.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.lilianghong.com/2016/10/16/Git-learning-notes/</loc>
+    <loc>http://www.lilianghong.com/2016/10/16/vagrant-install/</loc>
     
-    <lastmod>2016-10-16T16:57:09.000Z</lastmod>
+    <lastmod>2016-10-16T17:16:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.lilianghong.com/2016/10/15/git-study-notes/</loc>
+    
+    <lastmod>2016-10-16T17:15:37.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.lilianghong.com/2016/10/15/hexo-blog-install/</loc>
+    
+    <lastmod>2016-10-16T16:57:15.000Z</lastmod>
     
   </url>
   
