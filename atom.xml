@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.lilianghong.com/"/>
-  <updated>2016-08-17T09:53:29.000Z</updated>
+  <updated>2016-10-16T16:10:38.000Z</updated>
   <id>http://www.lilianghong.com/</id>
   
   <author>
@@ -16,43 +16,49 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>小试牛刀</title>
-    <link href="http://www.lilianghong.com/2016/08/17/my-second-blog/"/>
-    <id>http://www.lilianghong.com/2016/08/17/my-second-blog/</id>
-    <published>2016-08-17T09:45:03.000Z</published>
-    <updated>2016-08-17T09:53:29.000Z</updated>
+    <title>hexo博客安装</title>
+    <link href="http://www.lilianghong.com/2016/10/16/hexo-blog-install/"/>
+    <id>http://www.lilianghong.com/2016/10/16/hexo-blog-install/</id>
+    <published>2016-10-16T15:33:28.000Z</published>
+    <updated>2016-10-16T16:10:38.000Z</updated>
     
-    <content type="html"><![CDATA[<p>随便写点啥吧~</p>
+    <content type="html"><![CDATA[<h2 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h2><h3 id="安装node-js-需要下载安装软件"><a href="#安装node-js-需要下载安装软件" class="headerlink" title="安装node.js (需要下载安装软件)"></a>安装node.js (需要下载安装软件)</h3><h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><blockquote>
+<p>git和github是不一样的，git只是终端，github是储存代码的远程仓库，安装github需要安装软件</p>
+</blockquote>
+<h2 id="添加SSH-Key。"><a href="#添加SSH-Key。" class="headerlink" title="添加SSH-Key。"></a>添加SSH-Key。</h2><h3 id="设置你的用户名密码："><a href="#设置你的用户名密码：" class="headerlink" title="设置你的用户名密码："></a>设置你的用户名密码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.email &quot;bu.ru@qq.com&quot;</div><div class="line">git config --global user.name &quot;bruce-sha&quot;</div></pre></td></tr></table></figure>
+<h3 id="生成密钥："><a href="#生成密钥：" class="headerlink" title="生成密钥："></a>生成密钥：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;bu.ru@qq.com&quot;</div></pre></td></tr></table></figure>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/201610161476633567863.jpg?imageView2/0/format/jpg" alt="201610161476633567863.jpg"></p>
+<blockquote>
+<p>tips:</p>
+</blockquote>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663361865153.jpg?imageView2/0/format/jpg" alt="20161017147663361865153.jpg"></p>
+<blockquote>
+<p>如果有两个密匙，要把配置文件更改下，如下：</p>
+</blockquote>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663374724349.jpg?imageView2/0/format/jpg" alt="20161017147663374724349.jpg"></p>
+<h3 id="打开-github-pub-粘贴里面的内容"><a href="#打开-github-pub-粘贴里面的内容" class="headerlink" title="打开 github.pub,粘贴里面的内容"></a>打开 github.pub,粘贴里面的内容</h3><p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663378073236.jpg?imageView2/0/format/jpg" alt="20161017147663378073236.jpg"></p>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/2016101714766338073213.jpg?imageView2/0/format/jpg" alt="2016101714766338073213.jpg"></p>
+<p>如果页面在这的话，点击头像的setting设置，到：<br><img src="http://7xqmjb.com1.z0.glb.clouddn.com/201610171476633851331.jpg?imageView2/0/format/jpg" alt="201610171476633851331.jpg"><br><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663388556851.jpg?imageView2/0/format/jpg" alt="20161017147663388556851.jpg"></p>
+<p>设置好的话，可以输入 ssh -T git@github.com,验证一下，中间需要你输入yes或者点击enter键。<br>出现一下证明设置成功：<br><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663391998254.jpg?imageView2/0/format/jpg" alt="20161017147663391998254.jpg"></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre><code>npm install -g hexo
+苹果下面是 sudo  npm install -g hexo
+出现界面
+</code></pre><p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663395285019.jpg?imageView2/0/format/jpg" alt="20161017147663395285019.jpg"><br>不报错就是成功~</p>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>执行init命令初始化hexo到你指定的目录：</p>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663400745584.jpg?imageView2/0/format/jpg" alt="20161017147663400745584.jpg"></p>
+<p>进入到相应的目录，然后新建文件夹。</p>
+<p>进入到用户文件夹里面的”.ssh”文件<br>pwd</p>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663404615144.jpg?imageView2/0/format/jpg" alt="20161017147663404615144.jpg"></p>
+<p>上一步就是执行init命令初始化hexo到你指定的目录：</p>
+<h2 id="生成静态页面"><a href="#生成静态页面" class="headerlink" title="生成静态页面"></a>生成静态页面</h2><p>cd 到你的init目录，执行如下命令</p>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663406986342.jpg?imageView2/0/format/jpg" alt="20161017147663406986342.jpg"></p>
+<h2 id="本地启动"><a href="#本地启动" class="headerlink" title="本地启动"></a>本地启动</h2><p>hexo server</p>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663410054454.jpg?imageView2/0/format/jpg" alt="20161017147663410054454.jpg"><br>这个窗口不能关，然后打开<a href="http://localhost:4000/页面，就ok了。" target="_blank" rel="external">http://localhost:4000/页面，就ok了。</a></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;随便写点啥吧~&lt;/p&gt;
-
-    
-    </summary>
-    
-      <category term="自娱自乐" scheme="http://www.lilianghong.com/categories/%E8%87%AA%E5%A8%B1%E8%87%AA%E4%B9%90/"/>
-    
-    
-      <category term="自己尝试写的小例子" scheme="http://www.lilianghong.com/tags/%E8%87%AA%E5%B7%B1%E5%B0%9D%E8%AF%95%E5%86%99%E7%9A%84%E5%B0%8F%E4%BE%8B%E5%AD%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>my first blog</title>
-    <link href="http://www.lilianghong.com/2016/08/17/my-first-blog/"/>
-    <id>http://www.lilianghong.com/2016/08/17/my-first-blog/</id>
-    <published>2016-08-17T08:59:01.000Z</published>
-    <updated>2016-08-17T09:01:58.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>哈哈，我有自己的博客了。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;哈哈，我有自己的博客了。&lt;/p&gt;
-
+      &lt;h2 id=&quot;环境安装&quot;&gt;&lt;a href=&quot;#环境安装&quot; class=&quot;headerlink&quot; title=&quot;环境安装&quot;&gt;&lt;/a&gt;环境安装&lt;/h2&gt;&lt;h3 id=&quot;安装node-js-需要下载安装软件&quot;&gt;&lt;a href=&quot;#安装node-js-需要下载安装软件&quot; class=&quot;
     
     </summary>
     

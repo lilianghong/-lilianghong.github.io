@@ -1,0 +1,45 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><meta name="author" content="lilianghong"><link rel="icon" href="/hexo.png"><title>李亮红的个人博客</title><meta name="description" content="李亮红的个人博客"><link rel="alternate" type="application/rss+xml" title="李亮红的个人博客" href="/atom.xml"><link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"><link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/css/highlight.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+</head><body><nav class="navbar navbar-default navbar-fixed-top navbar-custom"><div class="container-fluid"><div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#main-navbar" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand">李亮红的个人博客</a></div><div id="main-navbar" class="collapse navbar-collapse"><ul class="nav navbar-nav navbar-right"><li><a href="/archives">Archive</a></li><li><a href="https://github.com/lilianghong">Github</a></li><li><a href="/about/">About</a></li></ul></div><div class="avatar-container"><div class="avatar-img-border"><a href="/"><img src="/hexo.png" class="avatar-img"></a></div></div></div></nav><header class="header-section"><div class="intro-header no-img"><div class="container"><div class="row"><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class="post-heading"><h1>hexo博客安装</h1><p class="post-meta">Posted on 10月 16 2016</p></div></div></div></div></div></header><div class="container"><div class="row"><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><article role="main" class="blog-post"><h2 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h2><h3 id="安装node-js-需要下载安装软件"><a href="#安装node-js-需要下载安装软件" class="headerlink" title="安装node.js (需要下载安装软件)"></a>安装node.js (需要下载安装软件)</h3><h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><blockquote>
+<p>git和github是不一样的，git只是终端，github是储存代码的远程仓库，安装github需要安装软件</p>
+</blockquote>
+<h2 id="添加SSH-Key。"><a href="#添加SSH-Key。" class="headerlink" title="添加SSH-Key。"></a>添加SSH-Key。</h2><h3 id="设置你的用户名密码："><a href="#设置你的用户名密码：" class="headerlink" title="设置你的用户名密码："></a>设置你的用户名密码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.email &quot;bu.ru@qq.com&quot;</div><div class="line">git config --global user.name &quot;bruce-sha&quot;</div></pre></td></tr></table></figure>
+<h3 id="生成密钥："><a href="#生成密钥：" class="headerlink" title="生成密钥："></a>生成密钥：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;bu.ru@qq.com&quot;</div></pre></td></tr></table></figure>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/201610161476633567863.jpg?imageView2/0/format/jpg" alt="201610161476633567863.jpg"></p>
+<blockquote>
+<p>tips:</p>
+</blockquote>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663361865153.jpg?imageView2/0/format/jpg" alt="20161017147663361865153.jpg"></p>
+<blockquote>
+<p>如果有两个密匙，要把配置文件更改下，如下：</p>
+</blockquote>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663374724349.jpg?imageView2/0/format/jpg" alt="20161017147663374724349.jpg"></p>
+<h3 id="打开-github-pub-粘贴里面的内容"><a href="#打开-github-pub-粘贴里面的内容" class="headerlink" title="打开 github.pub,粘贴里面的内容"></a>打开 github.pub,粘贴里面的内容</h3><p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663378073236.jpg?imageView2/0/format/jpg" alt="20161017147663378073236.jpg"></p>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/2016101714766338073213.jpg?imageView2/0/format/jpg" alt="2016101714766338073213.jpg"></p>
+<p>如果页面在这的话，点击头像的setting设置，到：<br><img src="http://7xqmjb.com1.z0.glb.clouddn.com/201610171476633851331.jpg?imageView2/0/format/jpg" alt="201610171476633851331.jpg"><br><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663388556851.jpg?imageView2/0/format/jpg" alt="20161017147663388556851.jpg"></p>
+<p>设置好的话，可以输入 ssh -T git@github.com,验证一下，中间需要你输入yes或者点击enter键。<br>出现一下证明设置成功：<br><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663391998254.jpg?imageView2/0/format/jpg" alt="20161017147663391998254.jpg"></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre><code>npm install -g hexo
+苹果下面是 sudo  npm install -g hexo
+出现界面
+</code></pre><p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663395285019.jpg?imageView2/0/format/jpg" alt="20161017147663395285019.jpg"><br>不报错就是成功~</p>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>执行init命令初始化hexo到你指定的目录：</p>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663400745584.jpg?imageView2/0/format/jpg" alt="20161017147663400745584.jpg"></p>
+<p>进入到相应的目录，然后新建文件夹。</p>
+<p>进入到用户文件夹里面的”.ssh”文件<br>pwd</p>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663404615144.jpg?imageView2/0/format/jpg" alt="20161017147663404615144.jpg"></p>
+<p>上一步就是执行init命令初始化hexo到你指定的目录：</p>
+<h2 id="生成静态页面"><a href="#生成静态页面" class="headerlink" title="生成静态页面"></a>生成静态页面</h2><p>cd 到你的init目录，执行如下命令</p>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663406986342.jpg?imageView2/0/format/jpg" alt="20161017147663406986342.jpg"></p>
+<h2 id="本地启动"><a href="#本地启动" class="headerlink" title="本地启动"></a>本地启动</h2><p>hexo server</p>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/20161017147663410054454.jpg?imageView2/0/format/jpg" alt="20161017147663410054454.jpg"><br>这个窗口不能关，然后打开<a href="http://localhost:4000/页面，就ok了。" target="_blank" rel="external">http://localhost:4000/页面，就ok了。</a></p>
+</article><ul class="pager blog-pager"><li class="next"><a href="/2016/08/17/hello-world/" data-toggle="tooltip" data-placement="top" title="Hello World">Next Post →</a></li></ul><div class="disqus-comments"><div class="comments"><div id="disqus_thread"></div></div></div><script>var url_parts = window.location.href.split("?");
+var disqus_url = url_parts[0];
+(function () {
+    console.log("enter disqus");
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = "//twoyao.disqus.com/embed.js";
+    (document.head || d.body ).appendChild(dsq);
+})();</script></div></div></div><footer><div class="container beautiful-jekyll-footer"><div class="row"><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center footer-links"><li><a href="https://github.com/twoyao" title="GitHub"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-stack-1x fa-inverse fa-github"></i></span></a></li><li><a href="/atom.xml" title="RSS"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-stack-1x fa-inverse fa-rss"></i></span></a></li><li><a href="https://twitter.com/twoyao_" title="Twitter"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-stack-1x fa-inverse fa-twitter"></i></span></a></li><li><a href="mailto:bisyao@gmail.com" title="Email me"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-stack-1x fa-inverse fa-envelope"></i></span></a></li></ul><p class="copyright text-muted">© lilianghong • 2016 • <a href="mailto:undefined"></a>
+</p><p class="theme-by text-muted">Theme by
+<a href="https://github.com/twoyao/beautiful-hexo">beautiful-hexo</a></p></div></div></div></footer><script src="/js/jquery-1.11.2.min.js"></script><script src="/js/bootstrap.min.js"></script><script src="/js/main.js"></script><script src="/js/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></body></html>
